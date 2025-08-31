@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Course } from '@/lib/types';
+import { Course } from '@prisma/client';
 
 type CourseCardProps = {
   course: Course;

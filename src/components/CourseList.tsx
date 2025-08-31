@@ -1,7 +1,11 @@
-import { mockCourses } from '@/lib/mock-data';
+import { Course } from '@prisma/client';
 import CourseCard from './CourseCard';
 
-export default function CourseList() {
+type CourseListProps = {
+  courses: Course[];
+};
+
+export default function CourseList({ courses }: CourseListProps) {
   return (
     <section className="py-12">
       <div className="container mx-auto px-4">
@@ -9,7 +13,7 @@ export default function CourseList() {
           Explore nossos cursos
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-          {mockCourses.map((course) => (
+          {courses.map((course) => (
             <CourseCard key={course.id} course={course} />
           ))}
         </div>

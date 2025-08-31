@@ -1,6 +1,11 @@
 import Link from 'next/link';
+import CourseList from '@/components/CourseList';
+import { getCourses } from '@/lib/data';
 
-export default function Home() {
+export default async function Home() {
+  // Fetch data directly in the Server Component
+  const courses = await getCourses();
+
   return (
     <div className="container mx-auto px-4">
       {/* Seção de Chamada para Ação (CTA) */}
@@ -20,10 +25,9 @@ export default function Home() {
       </section>
 
       {/* Seção de Listagem de Cursos */}
-      <CourseList />
+      <CourseList courses={courses} />
 
       {/* Futuras seções (Depoimentos) podem ser adicionadas aqui */}
     </div>
   );
 }
-import CourseList from '@/components/CourseList';
